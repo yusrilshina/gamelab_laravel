@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\KategoriController;
+use App\Models\Artikel;
+use App\Models\Kategori;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +22,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('kategori',KategoriController::class)->except('show');
+Route::resource('artikel',ArtikelController::class)->except('show');
